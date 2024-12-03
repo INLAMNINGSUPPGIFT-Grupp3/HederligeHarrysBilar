@@ -1,0 +1,46 @@
+.loan-form {
+    border: 2px solid black;
+    padding: 20px;
+    border-radius: 8px;
+    background-color: #f9f9f9b2;
+    width: 300px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+}
+
+.input-box {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.input-box label {
+    width: 30%;
+    text-align: left;
+}
+
+.input-box input {
+    width: calc(70% - 30px);
+}
+
+.input-box span {
+    flex-shrink: 0;
+    white-space: nowrap;
+    margin-left: 5px;
+}
+
+.buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.calculate-btn {
+    background-color: #8ac341;
+    color: white;
+    padding: 5px;
+}
+
+.clear-btn {
+    background-color: #0eb2ef;
+    color: white;
+    padding: 5px;
+}

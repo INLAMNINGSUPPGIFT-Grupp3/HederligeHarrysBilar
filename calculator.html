@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HederligeHarrysBilar</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <section class="loan-calculator">
+        <h2>Låna hos oss</h2>
+        <form class="loan-form" action="#">
+            <div class="input-box">
+            <label for="loan-amount">Lånesumma</label>
+            <input id="loan-amount" type="text" required />
+            </div>
+    
+            <div class="input-box">
+            <label for="interest-rate">Ränta</label>
+            <input id="interest-rate" type="text" required /> <span>&percnt;</span>
+            </div>
+    
+            <div class="input-box">
+            <label for="loan-length">Lånelängd</label>
+            <input id="loan-length" type="text" required />
+            <span>år</span>
+            </div>
+            
+            <section class="buttons">
+                <button type="submit" class="calculate-btn">Räkna ut</button>
+                <button type="reset" class="clear-btn">Rensa</button>
+            </section>
+
+            <p>
+            Din månadskostnad kommer bli:
+            <span class="payment-amount"></span>
+            </p>
+        </form>
+    </section>
+</body>
+</html>
