@@ -1,0 +1,16 @@
+@media screen and (max-width: 1400px) {
+    .hero-content,
+    .ratings {
+      max-width: 1000px;
+    }
+  }
+  
+  @media screen and (max-width: 1200px) {
+    #desktop-nav {
+      display: none;
+    }
+    
+    #mobile-nav {
+      display: flex;
+    }
+  }
