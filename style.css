@@ -1,56 +1,320 @@
-
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
 
 * {
 	margin: 0;
 	padding: 0;
+	/* text-align: center; */
 }
 
-body {
-
-}
-
-html {
-	scroll-behavior: smooth;
+html, body {
+font-family: "Poppins", sans-serif;
+/* text-transform: uppercase; */
+scroll-behavior: smooth;
+width: 100%;
+height: 100%;
 }
 
 p {
-	
+	color: rgb(85, 85, 85);
 }
 
 /* Transition */
-a {
+a,
+.btn {
 	transition: all 300ms ease;
 }
 
 /* Desktop Nav ---------------------------------------------------------------------- */
+#desktop-nav{
 
+}
 
+nav,
+.nav-links {
+	display: flex;
+}
+
+nav {
+	justify-content: space-around;
+	align-items: center;
+	height: 9vh;
+}
+
+.nav-links {
+  gap: 2rem;
+  list-style: none;
+  font-size: 1.2rem;
+}
+
+a {
+  color: black;
+  text-decoration: none;
+}
+
+a:hover {
+  color: green;
+  text-decoration: underline;
+  text-underline-offset: 1rem;
+  text-decoration-color: green;
+}
+
+.logo {
+  height: 6rem;
+}
 
 
 /* Mobile Nav ---------------------------------------------------------------------- */
+#mobile-nav {
+	display: none;
+}
+
+.hamburger-menu {
+	position: relative;
+	display: inline-block;
+}
+
+.hamburger-icon {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	height: 24px;
+	width: 30px;
+	cursor: pointer;
+}
+
+.hamburger-icon span {
+	width: 100%;
+	height: 2px;
+	background-color: black;
+	transition: all 0.3s ease-in-out;
+}
+
+.menu-links {
+	position: absolute;
+	top: 100%;
+	right: 0;
+	width: fit-content;
+	max-height: 0;
+	overflow: hidden;
+	transition: all 0.3s ease-in-out;
+	z-index: 999;
+}
+
+.menu-links a {
+	display: block;
+	padding: 10px;
+	text-align: center;
+	font-size: 1.5rem;
+	color: black;
+	text-decoration: none;
+	transition: all 0.3s ease-in-out;
+}
+
+.menu-links li {
+	list-style: none;
+}
+
+.menu-links a:hover {
+  background: #f5f5f5;
+	transform: translateY(-5px);
+}
+
+.menu-links.open {
+	max-height: 300px;
+}
+
+/* Hamburger Icon Animation */
+.hamburger-icon.open span:first-child {
+	transform: rotate(45deg) translate(10px, 5px);
+}
+
+.hamburger-icon.open span:nth-child(2) {
+	opacity: 0;
+}
+
+.hamburger-icon.open span:last-child {
+	transform: rotate(-45deg) translate(10px, -5px);
+}
+
+.hamburger-icon span:first-child {
+	transform: none;
+}
+
+.hamburger-icon span:first-child {
+	opacity: 1;
+}
+
+.hamburger-icon span:first-child {
+	transform: none;
+}
 
 
+/* Hero Section ---------------------------------------------------------------------- */
+#hero {
+	position: relative;
+  display: flex;
+  flex-direction: column;
+
+}
+
+.image-container {
+  position: relative;
+  height: 100%;
+  width: 100%;
+}
 
 
-/* Profile Section ---------------------------------------------------------------------- */
+.hero-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
 
+.hero-content {
+  position: absolute;
+  bottom: 20%;
+  width: 100%;
+  max-width: 1200px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 0 2rem;
+  text-align: left;
+	z-index: 2;
+}
 
+.hero-title {
+  font-size: 4rem;
+  font-weight: 600;
+  color: white;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  text-align: left;
+}
 
+/* Ratings Section */
+.ratings {
+  position: relative;
+  width: 100%;
+  max-width: 1200px;
+  margin: auto;
+  background: white;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 4rem;
 
-/* About SSection ---------------------------------------------------------------------- */
+}
 
+.ratings > div:first-child {
+  position: relative;
+  padding-right: 4rem;
+}
 
+.ratings > div:first-child::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-55%);
+  width: 1px;
+  height: 4rem;
+  background-color: rgba(128, 128, 128, 0.546);
+}
 
+.stars {
+  color: green;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
 
-/* Experience Section ---------------------------------------------------------------------- */
+/* Cards Section
+---------------------------------------------------------------------- */
+#cards-section {
+  background-color: #E4EAEB;
+  padding: 4rem 0;
+}
 
+.carousel-container {
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 3rem;
+}
 
+.carousel-view {
+  overflow: hidden;
+	margin: 0 1rem;
+}
 
+.carousel {
+  display: flex;
+  gap: 2rem;
+  transform: translateX(0);
+  transition: transform 0.5s ease-in-out;
+  padding: 1rem;
+}
 
-/* Projects Section ---------------------------------------------------------------------- */
+.card {
+  flex: 0 0 calc((100% - 4rem) / 3);
+  background: white;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
 
+.card:hover {
+  transform: translateY(-5px);
+}
 
+.card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
 
+.card-date {
+  padding: 0.5rem 1rem;
+  color: #666;
+  font-size: 0.9rem;
+}
+
+.card h3 {
+  padding: 0 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.card p {
+  padding: 0 1rem 1rem;
+  /* color: #666; */
+}
+
+.carousel-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: white;
+  border: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  z-index: 10;
+}
+
+.carousel-button:hover {
+  background: #f5f5f5;
+}
+
+.prev {
+  left: 0;
+}
+
+.next {
+  right: 0;
+}
 
 /* Contact Section ---------------------------------------------------------------------- */
 

@@ -1,12 +1,75 @@
 
 @media screen and (max-width: 1400px) {
-
+  .hero-content,
+  .ratings {
+    max-width: 1000px;
+  }
 }
 
 @media screen and (max-width: 1200px) {
+  #desktop-nav {
+    display: none;
+  }
+  
+  #mobile-nav {
+    display: flex;
+  }
+  #hero {
+    height: 40vh; 
+  }
 
+  .logo {
+    height: 80px;
+  }
+
+  .hero-content,
+  .ratings {
+    max-width: 90%;
+  }
+
+  .hero-title {
+    font-size: 3rem;
+  }
+  .card {
+    min-width: calc((100% - 2rem) / 2); /* 2 kort på mellenstora skärmar */
+  }
 }
 
 @media screen and (max-width: 600px) {
+  #hero {
+    height: 40vh; 
+  }
 
+  .hero-title {
+    font-size: 2.5rem;
+  }
+
+  .ratings {
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+  }
+
+  .ratings > div:first-child {
+    padding-right: 0;
+  }
+
+  .ratings > div:first-child::after {
+    display: none;
+  }
+	.logo {
+		font-size: 1.5rem;
+	}
+	.nav-links {
+		flex-direction: column;
+		gap: 0.5rem;
+		text-align: center;
+	}
+  .card {
+    min-width: 100%; /* 1 kort på mobil */
+  }
 }
+
+
+
