@@ -133,20 +133,43 @@ a:hover {
 	transform: none;
 }
 
-
 p {
 	color: rgb(85, 85, 85);
 }
 
 /* ----------- Hero section ---------- */
 
+.loan-calculator {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; 
+    padding-left: 40px;
+    padding-top: 20px;
+}
+
+input, label {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 .loan-form {
     border: 2px solid black;
     padding: 20px;
     border-radius: 8px;
-    background-color: #f9f9f9b2;
-    width: 300px;
+    background-color: #def0c5;
+    width: 450px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+}
+
+.loan-calculator h2 {
+    font-size: 32px;
+    color: #0e7094;
+}
+
+.loan-form p {
+    font-size: 18px;
+    color: black;
 }
 
 .input-box {
@@ -156,12 +179,16 @@ p {
 }
 
 .input-box label {
-    width: 30%;
+    width: 120px;
+    font-size: 24px;
     text-align: left;
+    margin-right: 4em;
 }
 
 .input-box input {
-    width: calc(70% - 30px);
+    flex: 1;
+    max-width: 200px;
+    padding: 5px;
 }
 
 .input-box span {
@@ -173,16 +200,25 @@ p {
 .buttons {
     display: flex;
     gap: 10px;
+    padding-bottom: 20px;
 }
 
 .calculate-btn {
     background-color: #8ac341;
+    font-family: "Poppins", sans-serif;
+    font-size: 18px;
     color: white;
-    padding: 5px;
+    padding: 8px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
 }
 
 .clear-btn {
     background-color: #0eb2ef;
+    font-family: "Poppins", sans-serif;
+    font-size: 18px;
     color: white;
-    padding: 5px;
+    padding: 8px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
 }
