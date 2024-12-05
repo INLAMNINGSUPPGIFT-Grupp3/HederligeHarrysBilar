@@ -1,81 +1,107 @@
-document.querySelector('.loan-form').addEventListener('submit', function (event) {
-    event.preventDefault(); // Förhindrar att formuläret skickas
+// Navigation --------------------------------------------------------------------------------------------------
+function toggleMenu () {
+    const menu = document.querySelector(".menu-links");
+    const icon = document.querySelector(".hamburger-icon");
+    menu.classList.toggle("open")
+    icon.classList.toggle("open")
+  }
+  
+  
+  // Cards-slider ------------------------------------------------------------------------------------------------
+  const carousel = document.querySelector(".carousel");
+  const card = document.querySelector(".card");
+  let currentPosition = -2; // index istället för pixlar
+  let isAnimating = false;
+  
+  // Funktion för att uppdatera carouselens position
+  function updatePosition() {
+    const cardWidth = card.offsetWidth + 32; // 32 är gap mellan korten
+    carousel.style.transform = `translateX(${currentPosition * cardWidth}px)`;
+  }
+  
+  // Initial setup
+  updatePosition();
+  
+  // slide-funktion
+  function slide(direction) {
+    if (isAnimating) return;
+    isAnimating = true;
+    currentPosition -= direction;
+    carousel.style.transition = "transform 0.5s ease-in-out";
+    updatePosition();
+  }
+  
+  // Hantera oändlig loop
+  carousel.addEventListener('transitionend', () => {
+    const totalCards = 5; 
     
-    const loanAmount = parseFloat(document.getElementById('loan-amount').value);
-    const annualInterestRate = parseFloat(document.getElementById('interest-rate').value) / 100;
-    const loanLengthYears = parseInt(document.getElementById('loan-length').value, 10);
-
-    // Kontrollera att värdena är giltiga
-    if (isNaN(loanAmount) || isNaN(annualInterestRate) || isNaN(loanLengthYears)) {
-        alert('Var god och fyll i alla fält med giltiga värden.');
-        return;
+    if (currentPosition < -totalCards - 1) {
+      currentPosition += totalCards;
+      resetTransition();
+    } else if (currentPosition > -1) {
+      currentPosition -= totalCards;
+      resetTransition();
     }
-
-    const monthlyInterestRate = annualInterestRate / 12;
-    const totalMonths = loanLengthYears * 12;
-
-    // Formel för månadsbetalning
-    const monthlyPayment = 
-        (loanAmount * monthlyInterestRate) /
-        (1 - Math.pow(1 + monthlyInterestRate, -totalMonths));
-
-    // Visa resultatet
-    const paymentAmountElement = document.querySelector('.payment-amount');
-    paymentAmountElement.textContent = monthlyPayment.toFixed(2) + ' SEK';
-});
-
-
-/*
-
-import "./styles.css";
-
-const formatter = new Intl.NumberFormat("sv-SE", {
-    style: "currency",
-    currency: "SEK"
-});
-
-const form = document.querySelector(".loan-form");
-const paymentAmount = document.querySelector(".payment-amount");
-
-const loan = () => 
-    parseInt(document.getElementById("loan-amount").value, 10);
-
-const monthlyInterestRate = () => {
-    const rate = parseInt(document.getElementById("interest-rate").value, 10);
-    return rate / 100 / 12;
-}
-
-const numOfPaymentMonths = () => {
-    const loanLength = parseInt(document.getElementById("loan-length").value, 0);
-    return loanLength * 12;
-}
-
-function monthlyPayment(loan, numOfPayments, interestRate) {
-    if (interestRate == 0) {
-        return loan / numOfPayments;
+    
+    isAnimating = false;
+  });
+  
+  // Hjälpfunktion för att återställa transition
+  function resetTransition() {
+    carousel.style.transition = "none";
+    updatePosition();
+    void carousel.offsetHeight; 
+    carousel.style.transition = "transform 0.5s ease-in-out";
+  }
+  
+  // Resize-hantering
+  let resizeTimeout;
+  window.addEventListener('resize', () => {
+    clearTimeout(resizeTimeout); 
+    resizeTimeout = setTimeout(() => {
+      updatePosition();
+    }, 250);
+  });
+  
+  
+  
+  
+  
+  // array med bilar -----------------------------------------------------------------------------------------
+  const cars = [
+    {
+        id: 1,
+        image: 'https://objectstorage.eu-amsterdam-1.oraclecloud.com/n/axmjqhyyjpat/b/randomimages/o/cars%2F1.png',
+        name: 'Tesla Model S',
+        type: 'Elbil',
+        year: 2023,
+        price: '799 000 SEK'
+    },
+    {
+        id: 2,
+        image: 'https://objectstorage.eu-amsterdam-1.oraclecloud.com/n/axmjqhyyjpat/b/randomimages/o/cars%2F2.png',
+        name: 'Volvo XC90',
+        type: 'SUV',
+        year: 2021,
+        price: '599 000 SEK'
     }
-
-    return (
-        (loan * interestRate * Math.pow(1 + interestRate, numOfPayments)) / 
-        (Math.pow(1 + interestRate, numOfPayments) - 1)
-    );
-}
-
-const submit = (e) => {
-    e.preventDefault();
-
-    const monthlyMortgagePayment = monthlyPayment(
-        loan(),
-        numOfPaymentMonths(),
-        monthlyInterestRate()
-    ).toFixed(2);
-
-    const formattedPayment = formatter.format(monthlyMortgagePayment);
-
-    paymentAmount.textContent = `${formattedPayment}`;
-    paymentAmount.style.visibility = "visible";
-};
-
-form.onsubmit = submit;
-
-*/
+    // Fler bilar kan läggas till här
+  ];
+  
+  // Hämta ID från URL:en
+  const urlParams = new URLSearchParams(window.location.search);
+  const carId = parseInt(urlParams.get('id'), 10);
+  
+  // Hitta aktuell bil
+  const car = cars.find(c => c.id === carId);
+  
+  // Uppdatera sidan med bilens information
+  if (car) {
+    document.getElementById('car-image').src = car.image;
+    document.getElementById('car-name').textContent = car.name;
+    document.getElementById('car-type').textContent = `Typ: ${car.type}`;
+    document.getElementById('car-year').textContent = `År: ${car.year}`;
+    document.getElementById('car-price').textContent = `Pris: ${car.price}`;
+  } else {
+    document.querySelector('.car-page').innerHTML = '<p>Bilen hittades inte!</p>';
+  }
