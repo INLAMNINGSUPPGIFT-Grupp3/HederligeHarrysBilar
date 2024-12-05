@@ -14,3 +14,27 @@
       display: flex;
     }
   }
+
+  @media screen and (max-width: 600px) {
+    .loan-form {
+        padding: 20px; 
+    }
+
+    .input-box label {
+        font-size: 18px; 
+    }
+
+    .input-box input {
+      max-width: 180px;
+    }
+
+    .calculate-btn,
+    .clear-btn {
+        max-width: 100%;
+        font-size: 16px;
+    }
+
+    .loan-form p {
+      font-size: 16px;
+    }
+}
