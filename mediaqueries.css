@@ -85,6 +85,9 @@
       height: 30px;
   }
 }
+
+/* Media queries för kalkylator */
+
   @media screen and (max-width: 600px) {
     .loan-form {
         padding: 20px; 
