@@ -1,3 +1,15 @@
+/* Hämta värde från bil */
+
+function setLoanAmount(vehicleId) {
+    const vehicle = vehicles.find(v => v.id === vehicleId);
+    if (vehicle) {
+        const loanAmountField = document.getElementById("loan-amount");
+        loanAmountField.value = vehicle.price;
+    }
+}
+
+/* Kalkylator */
+
 document.querySelector('.loan-form').addEventListener('submit', function (event) {
     event.preventDefault(); // Förhindrar att formuläret skickas
     
