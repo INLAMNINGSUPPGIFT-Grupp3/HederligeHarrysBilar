@@ -64,7 +64,7 @@ function toggleMenu () {
   });
   
   
-  
+
   
   
   // array med bilar -----------------------------------------------------------------------------------------
@@ -105,3 +105,8 @@ function toggleMenu () {
   } else {
     document.querySelector('.car-page').innerHTML = '<p>Bilen hittades inte!</p>';
   }
+
+
+  // Skickar meddelande när man trycker på knapp i kontaktformulär
+
+  

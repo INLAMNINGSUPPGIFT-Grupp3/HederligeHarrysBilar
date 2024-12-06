@@ -151,13 +151,41 @@
 
     <!-- Contact -->
     <section id="kontakta">
-      <p>Kontakt</p>
-      <h1 class="title">Kontakta mig</h1>
-      <div class="contact-info-upper-container">
-        <div class="contact-info-container">
-          <
+      <h1 class="title">Kontakta oss</h1>
+        <div class="contact-info-upper-container">
+          <div class="contact-info-container">
+            <table class="contact-info">
+              <tr>
+                  <th>Öppettider</th>
+                  <td>10:00 - 17:00 (Mån-Fre)</td>
+              </tr>
+              <tr>
+                  <th>Telefon</th>
+                  <td>+46 123 456 789</td>
+              </tr>
+              <tr>
+                  <th>Adress</th>
+                  <td>Bilsäljargatan 12, 123 45 Stockholm</td>
+              </tr>
+              <tr>
+                  <th>E-post</th>
+                  <td>hederligeharry@billeverantör.se</td>
+              </tr>
+            </table>
+            <form class="contact-form" action="#">
+              <label for="name">Namn:</label>
+              <input type="text" id="name" name="name" required>
+
+              <label for="email">E-post:</label>
+              <input type="email" id="email" name="email" required>
+
+              <label for="message">Meddelande:</label>
+              <textarea id="message" name="message" rows="5" required></textarea>
+
+              <button id="submitButton" type="submit">Skicka</button>
+            </form>
+          </div>
         </div>
-      </div>
     </section>
 
     <!-- Footer -->
