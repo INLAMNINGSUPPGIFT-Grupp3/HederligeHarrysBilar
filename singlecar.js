@@ -9,24 +9,87 @@ function toggleMenu () {
 
 
 // array med bilar --------------------------------------------------------------------------------------------------
-const cars = [
+const carData = [
   {
-      id: 1,
-      image: 'https://objectstorage.eu-amsterdam-1.oraclecloud.com/n/axmjqhyyjpat/b/randomimages/o/cars%2F1.png',
-      name: 'Tesla Model S',
-      type: 'Elbil',
-      year: 2023,
-      price: '799 000 SEK'
+    "id": 1,
+    "img":"../assets/McLaren.jpg",
+    "brand": "McLaren",
+    "model": "Artura",
+    "year": 2022,
+    "price": 225000
   },
   {
-      id: 2,
-      image: 'https://objectstorage.eu-amsterdam-1.oraclecloud.com/n/axmjqhyyjpat/b/randomimages/o/cars%2F2.png',
-      name: 'Volvo XC90',
-      type: 'SUV',
-      year: 2021,
-      price: '599 000 SEK'
+    "id": 2,
+    "img":"../assets/Riley.jpg",
+    "brand": "Riley",
+    "model": "Riley Nine Roadster",
+    "year": 1939,
+    "price": 50000
+  },
+  {
+    "id": 3,
+    "img":"../assets/Lamborghini.jpg",
+    "brand": "Lamborghini",
+    "model": "Troligtvis",
+    "year": 2020,
+    "price": 300000
+  },
+  {
+    "id": 4,
+    "img":"../assets/Porsche-911.jpg",
+    "brand": "Porsche",
+    "model": "911 GT3",
+    "year": 2022,
+    "price": 200000
+  },
+  {
+    "id": 5,
+    "img":"../assets/Mercedes-Benz.jpg",
+    "brand": "Mercedes-Benz",
+    "model": "AMG GT R",
+    "year": 2021,
+    "price": 162900
+  },
+  {
+    "id": 6,
+    "img":"../assets/Chevrolet.jpg",
+    "brand": "Chevrolet",
+    "model": "Corvette ZR1",
+    "year": 2019,
+    "price": 135000
+  },
+  {
+    "id": 7,
+    "img":"../assets/Rolls-RoyceGhost.jpg",
+    "brand": "Rolls-Royce",
+    "model": "Ghost",
+    "year": 2020,
+    "price": 400000
+  },
+  {
+    "id": 8,
+    "img":"../assets/Porsche-Cayman.jpg",
+    "brand": "Porsche",
+    "model": "718 Cayman",
+    "year": 2020,
+    "price": 100000
+  },
+  {
+    "id": 9,
+    "img":"../assets/Rolls-Royce.jpg",
+    "brand": "Rolls-Royce",
+    "model": "MyModel",
+    "year": 2020,
+    "price": 160000
+  },
+  {
+    "id": 10,
+    "img":"../assets/McLaren-Artura.jpg",
+    "brand": "McLaren",
+    "model": "720S",
+    "year": 2017,
+    "price": 300000
   }
-  // Fler bilar kan läggas till här
 ];
 
 // Hämta ID från URL:en
@@ -34,13 +97,13 @@ const urlParams = new URLSearchParams(window.location.search);
 const carId = parseInt(urlParams.get('id'), 10);
 
 // Hitta aktuell bil
-const car = cars.find(c => c.id === carId);
+const car = carData.find(c => c.id === carId);
 
 // Uppdatera sidan med bilens information
 if (car) {
-  document.getElementById('car-image').src = car.image;
-  document.getElementById('car-name').textContent = car.name;
-  document.getElementById('car-type').textContent = `Typ: ${car.type}`;
+  document.getElementById('car-img').src = car.img;
+  document.getElementById('car-brand').textContent = car.brand;
+  document.getElementById('car-model').textContent = `Märke: ${car.model}`;
   document.getElementById('car-year').textContent = `År: ${car.year}`;
   document.getElementById('car-price').textContent = `Pris: ${car.price}`;
 } else {

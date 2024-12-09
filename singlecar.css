@@ -211,7 +211,7 @@ nav {
 }
 
 /* Bilddelen */
-#car-image {
+#car-img {
   width: 100%;
   height: 55%; /* Täcker majoriteten av sidan */
   object-fit: cover; /* Anpassar bilden snyggt */
