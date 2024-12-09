@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <!-- Fontawesome -->
+    <script src="https://kit.fontawesome.com/ce8c5707d1.js" crossorigin="anonymous"></script>
+    <!-- <link rel="stylesheet" href="style.css"> -->
+    <link rel="stylesheet" href="our-cars.css">
+    <link rel="stylesheet" href="mediaqueries.css">
+    <title>HederligeHarrysBilar | Bilens Detaljer</title>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <div class="navigation">
+        <!-- Desktop-nav -->
+        <nav id="desktop-nav">
+          <a href="/index.html">
+            <img src="/assets/HederligeHarrysBilarTr2.png" alt="Hederlige Harrys Logo" class="logo">
+          </a>
+                <div>
+                    <ul class="nav-links">
+                        <li><a href="our-cars.html">Fordon</a></li>
+                        <li><a href="#Upptäck">Upptäck</a></li>
+                        <li><a href="#lånekalkylator">Lånekalkylator</a></li>
+                        <li><a href="#kontakta">Kontakt</a></li>
+                    </ul>
+                </div>
+        </nav>
+  
+        <!-- Mobile-nav -->
+        <nav id="mobile-nav">
+                <img src="/assets/HederligeHarrysBilarTr2.png" alt="Hederlige Harrys Logo" class="logo">
+                <div class="hamburger-menu">
+                    <div class="hamburger-icon" onclick="toggleMenu()">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+
+                    <ul class="menu-links glass-effect">
+                        <li><a href="our-cars.html">Fordon</a></li>
+                        <li><a href="#upptäck">Upptäck</a></li>
+                        <li><a href="#lånekalkylator">Lånekalkylator</a></li>
+                        <li><a href="#kontakta">Kontakta</a></li>
+                    </ul>
+                </div>
+        </nav>
+    </div>
+
+  <div class="container mt-5">
+    <div class="row car-detail">
+        <div class="col-12 col-md-6 col-lg-4 offset-lg-2">
+            <div class="mt-5">
+                <div class="col">
+                    <h2 id="carDetailsTitle">Bilens Detaljer</h2>
+                    <div id="carDetailsContainer"></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4 offset-lg-2">
+            <div class="mt-5">
+                <div class="col">
+                    <h2 id="calculator">Kalkylator</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+  
+  <!-- Footer -->
+  <footer id="footer">
+    <div class="footer-container">
+      <div class="footer-main">
+        <!-- Left Side -->
+        <div class="footer-left">
+          <p>&#169; 2024 - Hederlige Harrys Bra Bilar</p>
+        </div>
+        <nav class="footer-links">
+          <a href="#">Integritetspolicy</a>
+          <a href="#">Cookiepolicy</a>
+          <a href="#">E-post</a>
+          <a href="#">Köp- & leveransvillkor</a>
+          <a href="#">Bolagsinformation</a>
+        </nav>
+        <!-- Right Side -->
+        <div class="footer-right">
+            <a href="#" class="footer-credit">Grupp 3 webbdesign</a>
+        </div>
+        
+      </div>          
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS and dependencies -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+  
+  <script src="car-details.js"></script>
+</body>
+</html>
