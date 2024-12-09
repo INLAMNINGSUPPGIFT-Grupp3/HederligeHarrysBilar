@@ -122,6 +122,15 @@ a:hover {
 	transform: none;
 }
 
+.glass-effect {
+	/* background: rgba(3, 3, 3, 0.238); */
+	/* backdrop-filter: blur(8px);
+	-webkit-backdrop-filter: blur(8px); */
+	border: 1px solid rgba(255, 255, 255, 0.18);
+	padding: 0.5rem;
+	border-radius: 12px;
+}
+
 /* Cards ---------------------------------------*/
 
 .card-container {
@@ -130,7 +139,6 @@ a:hover {
 	padding: 20px;
 	width: 100%;
 	gap: 20px;
-
   }
 
   .card {
@@ -232,8 +240,3 @@ a:hover {
 		grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
 	}
   }
-  
-  
-
-
-  
