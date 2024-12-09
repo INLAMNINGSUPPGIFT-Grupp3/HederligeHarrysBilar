@@ -79,12 +79,13 @@ const carData = [
       "year": 2017,
       "price": 300000
     }
-]
+  ];
 
-  function generateCarCard(car) {
+// Rendera alla bilars cards
+function generateCarCard(car) {
     return `
         <div class="card mb-4 shadow-sm">
-          <a href="carDetails.html" id="${car.id}">
+          <a href="car-details.html?id=${car.id}" id="${car.id}">
             <img class="card-img-top" src="${car.img}" alt="${car.brand} ${car.model}">
           </a>
           <div class="card-body">
@@ -100,3 +101,4 @@ const carData = [
   carData.forEach(car => {
     container.innerHTML += generateCarCard(car);
   });
+      
