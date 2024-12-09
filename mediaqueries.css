@@ -86,10 +86,13 @@
   }
 }
 
-@media screen and (max-width: 782px) {
+/* Media queries för kontaktformulär */
 
-  #kontakta {
+@media screen and (max-width: 630px) {
+
+  #contact {
     height: 105vh;
+    padding-left: 0;
   }
 
   .contact-info-container {
@@ -120,6 +123,14 @@
   .contact-form button {
       align-self: center; 
       margin-top: 20px;   
+  }
+}
+
+@media screen and (max-width: 1024px) and (min-width: 631px) {
+
+  #contact {
+    height: 70vh;
+    padding-left: 40px;
   }
 }
 

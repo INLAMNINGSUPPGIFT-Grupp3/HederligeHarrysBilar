@@ -107,6 +107,59 @@ function toggleMenu () {
   }
 
 
-  // Skickar meddelande när man trycker på knapp i kontaktformulär
+  // Validering med felmeddelanden för kontaktformulär
 
-  
+  document.getElementById("contactForm").addEventListener("submit", function(event) {
+    event.preventDefault(); // Förhindrar formulärets standardbeteende (att skicka det)
+
+    let formIsValid = true;
+
+    // Återställ alla felmeddelanden och tidigare felmarkeringar
+    const errorMessages = document.querySelectorAll(".error-message");
+    errorMessages.forEach(msg => msg.remove()); // Ta bort gamla felmeddelanden
+    const inputs = document.querySelectorAll(".contact-form input, .contact-form textarea");
+    inputs.forEach(input => input.classList.remove("input-error"));
+
+    // Validera Namn
+    const name = document.getElementById("name");
+    if (!name.value) {
+        showError(name, "Namnet är obligatoriskt");
+        formIsValid = false;
+    }
+
+    // Validera E-post
+    const email = document.getElementById("email");
+    const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+    if (!email.value) {
+        showError(email, "E-postadress är obligatorisk");
+        formIsValid = false;
+    } else if (!emailPattern.test(email.value)) {
+        showError(email, "Ange en giltig e-postadress");
+        formIsValid = false;
+    }
+
+    // Validera Meddelande
+    const message = document.getElementById("message");
+    if (!message.value) {
+        showError(message, "Meddelandet är obligatoriskt");
+        formIsValid = false;
+    }
+
+    // Om formuläret är giltigt, skicka det
+    if (formIsValid) {
+        alert("Formuläret skickades!");
+    }
+});
+
+function showError(input, message) {
+    // Skapa felmeddelande (som ett separat <span>)
+    const errorMsg = document.createElement("span");
+    errorMsg.classList.add("error-message");
+    errorMsg.textContent = message;
+
+    // Placera felmeddelandet efter inputfältet
+    input.parentNode.appendChild(errorMsg);
+
+    // Lägg till röd kant på fältet
+    input.classList.add("input-error");
+}

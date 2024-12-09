@@ -364,17 +364,13 @@ nav {
 .next { right: 0; }
 
 /* Contact Section ---------------------------------------------------------------------- */
-#kontakta {
+#contact {
 	display: flex;
   flex-direction: column;
 	align-items: center;
 	height: 70vh;
   padding: 20px;
-}
-
-.kontakta-container {
-  width: 100%;
-  margin: 0 auto;
+  padding-left: 100px;
 }
 
 .contact-info-container {
@@ -435,7 +431,16 @@ nav {
   background-color: #0d8fbe;
 }
 
+.error-message {
+  color: red;
+  font-size: 0.9em;
+  margin-top: 5px;
+  display: block; /* Gör felmeddelandet synligt */
+}
 
+.input-error {
+  border-color: red; /* Gör kantlinjen röd när fältet är fel */
+}
 
 
 /* Footer Section ---------------------------------------------------------------------- */
