@@ -6,6 +6,7 @@
 	/* text-align: center; */
 }
 
+
 body {
 font-family: "Poppins", sans-serif;
 /* text-transform: uppercase; */
@@ -308,7 +309,7 @@ nav {
 }
 
 .card {
-  flex: 0 0 calc((100% - 4rem) / 3); /* Tre kort fyller hela bredden */
+  flex: 0 0 calc((100% - 6rem) / 5); /* Tre kort fyller hela bredden */
   background: white;
   border-radius: 8px;
   overflow: hidden;
