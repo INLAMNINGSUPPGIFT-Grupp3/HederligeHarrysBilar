@@ -44,10 +44,10 @@
           <!-- Hero -->
     <section class="loan-calculator">
         <h2>Låna hos oss</h2>
-            <form class="loan-form" action="#">
+            <form class="loan-form" action="#" novalidate>
                 <div class="input-box">
                     <label for="loan-amount">Lånesumma</label>
-                    <input id="loan-amount" type="number" readonly />
+                    <input id="loan-amount" type="number" required />
                     <span>kr</span>
                 </div>
         
@@ -57,10 +57,14 @@
                     <span>&percnt;</span>
                 </div>
         
-                <div class="input-box">
+                <div class="input-box" id="loan-length-input-box">
                     <label for="loan-length">Lånelängd</label>
                     <input id="loan-length" type="number" min="1" max="15" required />
                     <span>år</span>
+                </div>
+
+                <div>
+                    <span id="loan-length-error" class="error-message"></span>
                 </div>
                 
                 <section class="buttons">
@@ -74,6 +78,6 @@
                 </p>
             </form>
     </section>
-    <script src="script.js"></script>
+    <script src="calculator-script.js"></script>
 </body>
 </html>

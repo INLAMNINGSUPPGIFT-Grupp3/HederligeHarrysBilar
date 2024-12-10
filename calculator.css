@@ -41,6 +41,10 @@ input, label {
     gap: 1px;
 }
 
+#loan-length-input-box {
+    margin-bottom: 5px;
+}
+
 .input-box label {
     width: 120px;
     font-size: 24px;
@@ -68,7 +72,7 @@ input, label {
     padding-bottom: 20px;
 }
 
-.calculate-btn {
+.calculate-btn, .clear-btn {
     background-color: #8ac341;
     font-family: "Poppins", sans-serif;
     font-size: 18px;
@@ -76,14 +80,17 @@ input, label {
     padding: 8px;
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+    cursor: pointer;
 }
 
 .clear-btn {
     background-color: #0eb2ef;
-    font-family: "Poppins", sans-serif;
-    font-size: 18px;
-    color: white;
-    padding: 8px;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+}  
+
+.error-message {
+    color: red;
+    font-size: 14px;
+    display: block;
+    padding-left: 119px;
+    padding-bottom: 10px;
 }
