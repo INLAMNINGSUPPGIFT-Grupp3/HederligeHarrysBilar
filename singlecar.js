@@ -17,7 +17,7 @@ const cars = [
   },
   {
     id: 3,
-    img: "/assets/porsche911.jpg",
+    img: "/assets/car4.jpg",
     title: "Porsche 911",
     type: "Sportbil",
     year: 1964,
@@ -103,11 +103,9 @@ function setLoanAmount(car) {
   const loanAmountField = document.getElementById("loan-amount");
   const interestRateField = document.getElementById("interest-rate");
   
-  // Sätt lånebeloppet till bilens pris (convert till number för att kunna arbeta med det)
   loanAmountField.value = car.price.replace(' kr', '').replace(/\s/g, '');
-  interestRateField.value = 15; // 15% ränta (kan ändras om du vill)
+  interestRateField.value = 15; 
   
-  // Gör fälten readonly
   loanAmountField.readOnly = true;
   interestRateField.readOnly = true;
 }
