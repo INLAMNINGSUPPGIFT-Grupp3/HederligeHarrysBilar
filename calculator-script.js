@@ -1,17 +1,29 @@
 /* Hämta värde från bil */
 
-/* Kalkylator */
+function setLoanAmount(vehicleId) {
+    const vehicle = vehicles.find(v => v.id === vehicleId);
+    if (vehicle) {
+        const loanAmountField = document.getElementById("loan-amount");
+        loanAmountField.value = vehicle.price;
+    }
+}
+
+/* Kalkylator med validering av formulär, med felmeddelanden */
 
 document.querySelector('.loan-form').addEventListener('submit', function (event) {
     event.preventDefault(); // Förhindrar att formuläret skickas
-    
-    const loanAmount = parseFloat(document.getElementById('loan-amount').value.replace(/\s/g, ''));
+
+    const loanAmount = parseFloat(document.getElementById('loan-amount').value);
     const annualInterestRate = parseFloat(document.getElementById('interest-rate').value) / 100;
     const loanLengthYears = parseInt(document.getElementById('loan-length').value, 10);
+    const loanLengthError = document.getElementById('loan-length-error');
 
-    // Kontrollera att värdena är giltiga
-    if (isNaN(loanAmount) || isNaN(annualInterestRate) || isNaN(loanLengthYears)) {
-        alert('Var god och fyll i alla fält med giltiga värden.');
+    // Ta bort tidigare felmeddelanden
+    loanLengthError.textContent = '';
+
+    // Kontrollera att lånelängd är giltig
+    if (isNaN(loanLengthYears) || loanLengthYears <= 0 || loanLengthYears >= 16) {
+        loanLengthError.textContent = 'Lånelängd måste vara mellan 1 och 15 år.';
         return;
     }
 
@@ -25,60 +37,5 @@ document.querySelector('.loan-form').addEventListener('submit', function (event)
 
     // Visa resultatet
     const paymentAmountElement = document.querySelector('.payment-amount');
-    paymentAmountElement.textContent = formatPrice(monthlyPayment.toFixed(2)) + ' SEK';
+    paymentAmountElement.textContent = monthlyPayment.toFixed(2) + ' SEK';
 });
-
-import "./styles.css";
-
-const formatter = new Intl.NumberFormat("sv-SE", {
-    style: "currency",
-    currency: "SEK"
-});
-
-const form = document.querySelector(".loan-form");
-const paymentAmount = document.querySelector(".payment-amount");
-
-const loan = () => 
-    parseInt(document.getElementById("loan-amount").value.replace(/\s/g, ''), 10);
-
-const monthlyInterestRate = () => {
-    const rate = parseInt(document.getElementById("interest-rate").value, 10);
-    return rate / 100 / 12;
-}
-
-const numOfPaymentMonths = () => {
-    const loanLength = parseInt(document.getElementById("loan-length").value, 0);
-    return loanLength * 12;
-}
-
-function monthlyPayment(loan, numOfPayments, interestRate) {
-    if (interestRate == 0) {
-        return loan / numOfPayments;
-    }
-
-    return (
-        (loan * interestRate * Math.pow(1 + interestRate, numOfPayments)) / 
-        (Math.pow(1 + interestRate, numOfPayments) - 1)
-    );
-}
-
-function formatPrice(price) {
-    return new Intl.NumberFormat('sv-SE').format(price);
-}
-
-const submit = (e) => {
-    e.preventDefault();
-
-    const monthlyMortgagePayment = monthlyPayment(
-        loan(),
-        numOfPaymentMonths(),
-        monthlyInterestRate()
-    ).toFixed(2);
-
-    const formattedPayment = formatter.format(monthlyMortgagePayment);
-
-    paymentAmount.textContent = `${formattedPayment}`;
-    paymentAmount.style.visibility = "visible";
-};
-
-form.onsubmit = submit;
