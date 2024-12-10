@@ -85,7 +85,7 @@ const cars = [
 function generateCarCard(car) {
     return `
         <div class="card mb-4 shadow-sm">
-          <a href="car-details.html?id=${car.id}" id="${car.id}">
+          <a href="singlecar.html?id=${car.id}" id="${car.id}">
             <img class="card-img-top" src="${car.img}" alt="${car.title} ${car.type}">
           </a>
           <div class="card-body">
