@@ -9,6 +9,7 @@
     />
     <link rel="stylesheet" href="singlecar.css" />
     <link rel="stylesheet" href="mediaqueries.css" />
+    <link rel="stylesheet" href="calculator.css" />
     <title>HederligeHarrysBilar</title>
   </head>
 
@@ -42,6 +43,40 @@
           </ul>
         </div>
       </div>
+
+      <section class="loan-calculator">
+        <h2>Låna hos oss</h2>
+            <form class="loan-form" action="#">
+                <div class="input-box">
+                    <label for="loan-amount">Lånesumma</label>
+                    <input id="loan-amount" type="number" readonly />
+                    <span>kr</span>
+                </div>
+        
+                <div class="input-box">
+                    <label for="interest-rate">Ränta</label>
+                    <input id="interest-rate" type="number" value="15" readonly /> 
+                    <span>&percnt;</span>
+                </div>
+        
+                <div class="input-box">
+                    <label for="loan-length">Lånelängd</label>
+                    <input id="loan-length" type="number" min="1" max="15" required />
+                    <span>år</span>
+                </div>
+                
+                <section class="buttons">
+                    <button type="submit" class="calculate-btn">Räkna ut</button>
+                    <button type="reset" class="clear-btn">Rensa</button>
+                </section>
+
+                <p>
+                Din månadskostnad kommer bli:
+                <span class="payment-amount"></span>
+                </p>
+            </form>
+    </section>
+    
     </div>
 
     <footer id="site-footer">
@@ -66,9 +101,8 @@
 
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-      crossorigin="anonymous"
     ></script>
     <script src="singlecar.js"></script>
+    <script src="calculator-script.js"></script>
   </body>
 </html>

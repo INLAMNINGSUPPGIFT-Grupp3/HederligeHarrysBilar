@@ -1,7 +1,7 @@
 const cars = [
   {
     id: 1,
-    img: "/assets/car2.jpg",
+    img: "/assets/astonmartin.jpgjpg",
     title: "Aston Martin DB5",
     type: "Grand Tourer",
     year: 1964,
@@ -37,48 +37,48 @@ const cars = [
     title: "Lamborghini Revuelto",
     type: "Sportbil",
     year: 2024,
-    price: "6 955 222 kr",
+    price: "6 955 222",
   },
-  /*{
+  {
     id: 6,
-    img: "/assets/car2.jpg",
-    title: "Aston Martin DB5",
-    type: "Klassiker",
-    year: 1964,
-    price: "25 000 000 kr",
+    img: "/assets/Ford taurus.webp",
+    title: "Ford Taurus",
+    type: "Sedan",
+    year: 2024,
+    price: "500000",
   },
   {
     id: 7,
-    img: "/assets/car3.jpg",
-    title: "Ferrari Spider",
-    type: "Klassiker",
-    year: 2015,
-    price: "1 858 000 kr",
+    img: "/assets/bentaygahybrid01.webp",
+    title: "Bentley Bentayga",
+    type: "SUV",
+    year: 2024,
+    price: "1858000",
   },
   {
     id: 8,
-    img: "/assets/car4.jpg",
-    title: "Porsche 911",
+    img: "/assets/Nissan GT-R.jpeg",
+    title: "Nissan GT-R",
     type: "Sportbil",
-    year: 1964,
-    price: "1 500 000 kr",
+    year: 2024,
+    price: "1500000",
   },
   {
     id: 9,
-    img: "/assets/audiQ5.webp",
-    title: "Audi Q5",
-    type: "S line TDI quattro fyrhjulsdrift S tronic",
-    year: 2023,
-    price: "1 181 170 kr",
+    img: "/assets/mclaren artura spider.jpg",
+    title: "McLaren Artura Spider",
+    type: "Sportbil",
+    year: 2024,
+    price: "8181170",
   },
   {
     id: 10,
     img: "/assets/car1.jpg",
-    title: "Lamborghini Aventador",
-    type: "Sportbil",
-    year: 1967,
-    price: "3 344 331 kr",
-  },*/
+    title: "Ford F-150",
+    type: "Pickup",
+    year: 2024,
+    price: "1344331",
+  },
 ];
 
 const urlParams = new URLSearchParams(window.location.search);
@@ -91,7 +91,23 @@ if (carId && cars.some((car) => car.id == carId)) {
   document.getElementById("car-type").textContent = car.type;
   document.getElementById("car-year").textContent = "År: " + car.year;
   document.getElementById("car-price").textContent = "Pris: " + car.price;
+  
+  setLoanAmount(car);
 } else {
   document.getElementById("car-details").innerHTML =
     "<p>Ingen bilinformation tillgänglig.</p>";
+}
+
+
+function setLoanAmount(car) {
+  const loanAmountField = document.getElementById("loan-amount");
+  const interestRateField = document.getElementById("interest-rate");
+  
+  // Sätt lånebeloppet till bilens pris (convert till number för att kunna arbeta med det)
+  loanAmountField.value = car.price.replace(' kr', '').replace(/\s/g, '');
+  interestRateField.value = 15; // 15% ränta (kan ändras om du vill)
+  
+  // Gör fälten readonly
+  loanAmountField.readOnly = true;
+  interestRateField.readOnly = true;
 }
