@@ -17,7 +17,7 @@ const cars = [
   },
   {
     id: 3,
-    img: "/assets/car4.jpg",
+    img: "/assets/porsche911.jpg",
     title: "Porsche 911",
     type: "Sportbil",
     year: 1964,
@@ -73,7 +73,7 @@ const cars = [
   },
   {
     id: 10,
-    img: "/assets/car1.jpg",
+    img: "/assets/Ford f-150.jpg",
     title: "Ford F-150",
     type: "Pickup",
     year: 2024,
