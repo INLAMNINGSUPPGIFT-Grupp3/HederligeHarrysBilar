@@ -109,3 +109,4 @@ function setLoanAmount(car) {
   loanAmountField.readOnly = true;
   interestRateField.readOnly = true;
 }
+
