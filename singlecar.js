@@ -37,7 +37,7 @@ const cars = [
     title: "Lamborghini Revuelto",
     type: "Sportbil",
     year: 2024,
-    price: "6 955 222",
+    price: "6 955 222 kr",
   },
   {
     id: 6,
@@ -45,7 +45,7 @@ const cars = [
     title: "Ford Taurus",
     type: "Sedan",
     year: 2024,
-    price: "500000",
+    price: "500 000 kr",
   },
   {
     id: 7,
@@ -53,7 +53,7 @@ const cars = [
     title: "Bentley Bentayga",
     type: "SUV",
     year: 2024,
-    price: "1858000",
+    price: "1 858 000 kr",
   },
   {
     id: 8,
@@ -61,7 +61,7 @@ const cars = [
     title: "Nissan GT-R",
     type: "Sportbil",
     year: 2024,
-    price: "1500000",
+    price: "1 500 000 kr",
   },
   {
     id: 9,
@@ -69,7 +69,7 @@ const cars = [
     title: "McLaren Artura Spider",
     type: "Sportbil",
     year: 2024,
-    price: "8181170",
+    price: "8 181 170 kr",
   },
   {
     id: 10,
@@ -77,7 +77,7 @@ const cars = [
     title: "Ford F-150",
     type: "Pickup",
     year: 2024,
-    price: "1344331",
+    price: "1 344 331 kr",
   },
 ];
 
