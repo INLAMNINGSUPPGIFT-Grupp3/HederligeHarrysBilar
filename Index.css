@@ -328,7 +328,18 @@ nav {
 	align-items: center;
 	height: 70vh;
   padding: 20px;
-  padding-left: 100px;
+  /* padding-left: 100px; */
+}
+
+.title {
+  margin-bottom: 2rem;
+  color: #333;
+  text-align: center;
+}
+
+.contact-info-upper-container {
+  width: 100%;
+  max-width: 1200px;
 }
 
 .contact-info-container {
@@ -337,6 +348,7 @@ nav {
   align-items: flex-start;
   gap: 20px;
   width: 100%;
+  max-width: 1200px;
   margin-top: 10px;
 }
 
@@ -366,11 +378,11 @@ nav {
 
 .contact-form input, 
 .contact-form textarea {
-  width: 70%;
-  padding: 8px;
-  margin-top: 5px;
+  width: 100%;
+  padding: 0.75rem;
   border: 1px solid #ddd;
   border-radius: 4px;
+  margin-top: 0.25rem;
 }
 
 .contact-form button {
@@ -403,7 +415,7 @@ nav {
 
 /* Footer Section ---------------------------------------------------------------------- */
 #footer {
-  background-color: #D7DDDE;
+  background-color: #8ec149;
   padding: 1.5rem 0;
   font-size: 0.8rem;
 }

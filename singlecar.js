@@ -125,6 +125,8 @@ const cars = [
 
 
 // Visa bildetaljer
+
+
 function displayCarDetails() {
   const urlParams = new URLSearchParams(window.location.search);
   const carId = parseInt(urlParams.get("id"));

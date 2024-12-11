@@ -109,6 +109,25 @@
       height: 30px;
   }
 
+  .contact-info-container {
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+    /* Contact */
+  .contact-info,
+  .contact-form {
+    width: 100%;
+  }
+  
+  .contact-info table {
+    width: 100%;
+  }
+  
+  .contact-form button {
+    width: 100%;
+  }
+
   /* Single Car Page */
   .container {
     margin-top: 6rem;
