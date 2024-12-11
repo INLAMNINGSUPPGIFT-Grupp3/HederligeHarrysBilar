@@ -47,6 +47,29 @@
       height: 35px;
   }
   
+  /* Single Car Page */
+  .container {
+    margin-top: 7rem;
+    padding: 0 2rem;
+  }
+  
+  #car-details-section {
+    flex-direction: column;
+  }
+  
+  #car-details-section .col-lg-7,
+  #car-details-section .col-lg-5 {
+    width: 100%;
+  }
+  
+  #car-image {
+    height: 350px;
+  }
+  
+  .loan-calculator {
+    margin-top: 2rem;
+  }
+
   /* Footer */
   .footer-main {
     flex-direction: column;
@@ -84,6 +107,61 @@
   .carousel-button {
       width: 30px;
       height: 30px;
+  }
+
+  .contact-info-container {
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+    /* Contact */
+  .contact-info,
+  .contact-form {
+    width: 100%;
+  }
+  
+  .contact-info table {
+    width: 100%;
+  }
+  
+  .contact-form button {
+    width: 100%;
+  }
+
+  /* Single Car Page */
+  .container {
+    margin-top: 6rem;
+    padding: 0 1rem;
+  }
+  
+  #car-image {
+    height: 250px;
+  }
+  
+  .loan-calculator h2 {
+    font-size: 1.5rem;
+  }
+  
+  .loan-form {
+    padding: 1.5rem !important;
+  }
+  
+  .loan-form .row {
+    margin: 0;
+  }
+  
+  .loan-form .col-md-4 {
+    padding: 0;
+  }
+  
+  .btn-success,
+  .btn-outline-secondary {
+    width: 100%;
+    margin-bottom: 0.5rem;
+  }
+  
+  .d-flex.gap-2 {
+    flex-direction: column;
   }
 }
 

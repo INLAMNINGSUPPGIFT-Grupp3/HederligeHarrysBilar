@@ -8,77 +8,21 @@ function toggleMenu () {
 }
 
 
-// Cards-slider ------------------------------------------------------------------------------------------------
-const carousel = document.querySelector(".carousel");
-const card = document.querySelector(".card");
-let currentPosition = -2; // index istället för pixlar
-let isAnimating = false;
-
-// Funktion för att uppdatera carouselens position
-function updatePosition() {
-  const cardWidth = card.offsetWidth + 32; // 32 är gap mellan korten
-  carousel.style.transform = `translateX(${currentPosition * cardWidth}px)`;
-}
-
-// Initial setup
-updatePosition();
-
-// slide-funktion
-function slide(direction) {
-  if (isAnimating) return;
-  isAnimating = true;
-  currentPosition -= direction;
-  carousel.style.transition = "transform 0.5s ease-in-out";
-  updatePosition();
-}
-
-// Hantera oändlig loop
-carousel.addEventListener('transitionend', () => {
-  const totalCards = 5; 
-  
-  if (currentPosition < -totalCards - 1) {
-    currentPosition += totalCards;
-    resetTransition();
-  } else if (currentPosition > -1) {
-    currentPosition -= totalCards;
-    resetTransition();
-  }
-  
-  isAnimating = false;
-});
-
-// Hjälpfunktion för att återställa transition
-function resetTransition() {
-  carousel.style.transition = "none";
-  updatePosition();
-  void carousel.offsetHeight; 
-  carousel.style.transition = "transform 0.5s ease-in-out";
-}
-
-// Resize-hantering
-let resizeTimeout;
-window.addEventListener('resize', () => {
-  clearTimeout(resizeTimeout); 
-  resizeTimeout = setTimeout(() => {
-    updatePosition();
-  }, 250);
-});
-
-// Array med bilar -----------------------------------------------------------------------------------------
-const carInformation = [
+// array med bilar -----------------------------------------------------------------------------------
+const cars = [
   {
     "id": 1,
-    "img":"../assets/McLaren.jpg",
+    "img":"../assets/McLaren-Artura.jpg",
     "brand": "McLaren",
     "model": "Artura",
-    "year": 2022,
+    "year": 2021,
     "price": 225000
   },
   {
     "id": 2,
     "img":"../assets/Riley.jpg",
     "brand": "Riley",
-    "model": "Riley Nine Roadster",
+    "model": "Nine Roadster",
     "year": 1939,
     "price": 50000
   },
@@ -86,7 +30,7 @@ const carInformation = [
     "id": 3,
     "img":"../assets/Lamborghini.jpg",
     "brand": "Lamborghini",
-    "model": "Troligtvis",
+    "model": "Huracán",
     "year": 2020,
     "price": 300000
   },
@@ -108,7 +52,7 @@ const carInformation = [
   },
   {
     "id": 6,
-    "img":"../assets/Chevrolet.jpg",
+    "img":"../assets/Chevrolet-Corvette.jpg",
     "brand": "Chevrolet",
     "model": "Corvette ZR1",
     "year": 2019,
@@ -140,7 +84,7 @@ const carInformation = [
   },
   {
     "id": 10,
-    "img":"../assets/McLaren-Artura.jpg",
+    "img":"../assets/McLaren-720S.jpg",
     "brand": "McLaren",
     "model": "720S",
     "year": 2017,
@@ -148,54 +92,198 @@ const carInformation = [
   }
 ];
 
-// Rendera alla bilars cards
-function populateCarCards(car) {
-  return `
-      <div class="card mb-4 shadow-sm">
-        <a href="car-details.html?id=${car.id}" id="${car.id}">
-          <img class="card-img-top" src="${car.img}" alt="${car.brand} ${car.model}">
-        </a>
+
+// Cards-slider old -------------------------------------------------------------------------------------------------
+// const carousel = document.querySelector(".carousel");
+// const card = document.querySelector(".card");
+// let currentPosition = -2; // index istället för pixlar
+// let isAnimating = false;
+
+// // Funktion för att uppdatera carouselens position
+// function updatePosition() {
+//   const cardWidth = card.offsetWidth + 32; // 32 är gap mellan korten
+//   carousel.style.transform = `translateX(${currentPosition * cardWidth}px)`;
+// }
+
+// // Initial setup
+// updatePosition();
+
+// // slide-funktion
+// function slide(direction) {
+//   if (isAnimating) return;
+//   isAnimating = true;
+//   currentPosition -= direction;
+//   carousel.style.transition = "transform 0.5s ease-in-out";
+//   updatePosition();
+// }
+
+// // Hantera oändlig loop
+// carousel.addEventListener('transitionend', () => {
+//   const totalCards = 5; 
+  
+//   if (currentPosition < -totalCards - 1) {
+//     currentPosition += totalCards;
+//     resetTransition();
+//   } else if (currentPosition > -1) {
+//     currentPosition -= totalCards;
+//     resetTransition();
+//   }
+  
+//   isAnimating = false;
+// });
+
+// // Hjälpfunktion för att återställa transition
+// function resetTransition() {
+//   carousel.style.transition = "none";
+//   updatePosition();
+//   void carousel.offsetHeight; 
+//   carousel.style.transition = "transform 0.5s ease-in-out";
+// }
+
+// // Resize-hantering
+// let resizeTimeout;
+// window.addEventListener('resize', () => {
+//   clearTimeout(resizeTimeout); 
+//   resizeTimeout = setTimeout(() => {
+//     updatePosition();
+//   }, 250);
+// });
+
+// // Navigera till singlecar
+// function navigateToCarDetails(carId) {
+//   window.location.href = `singlecar.html?id=${carId}`;
+// }
+
+// // klickhändelselyssnare till alla kort
+// document.addEventListener('DOMContentLoaded', () => {
+//   const cards = document.querySelectorAll('.card');
+//   cards.forEach(card => {
+//     card.style.cursor = 'pointer'; 
+    
+    
+//     card.addEventListener('mouseenter', () => {
+//       card.style.transform = 'translateY(-5px)';
+//     });
+    
+//     card.addEventListener('mouseleave', () => {
+//       card.style.transform = 'translateY(0)';
+//     });
+//   });
+// });
+
+
+/* New carousel, generate dynamically instead */
+function generateCarouselCards() {
+  const carousel = document.querySelector(".carousel");
+  let cardsHTML = '';
+  
+  // First set of cards (for infinite scroll)
+  cars.slice(0, 5).forEach((car, index) => {
+    cardsHTML += `
+      <div class="card" data-index="${index}" onclick="navigateToCarDetails(${car.id})">
+        <img src="${car.img}" alt="${car.brand} ${car.model}" class="card-img-top">
         <div class="card-body">
-          <h6 class="card-title">${car.brand} - ${car.model}</h6>
-          <p class="card-text justify-content-center">År: ${car.year}</p>
-          <p class="card-text">Pris: ${car.price} SEK</p>
+          <h5 class="card-title">${car.brand}</h5>
+          <h6 class="card-subtitle mb-2">${car.model}</h6>
+          <p class="card-text">År: ${car.year}</p>
+          <p class="card-text fw-bold">Pris: ${car.price.toLocaleString()} SEK</p>
         </div>
       </div>
-  `;
+    `;
+  });
+
+  // Duplicate cards for infinite scroll
+  carousel.innerHTML = cardsHTML + cardsHTML;
 }
 
-const container = document.getElementById("carCardsContainer");
-carInformation.forEach(car => {
-  container.innerHTML += populateCarCards(car);
+
+// Cards-slider ------------------------------------------------------------------------------------------------
+// Variables for carousel
+let carousel;
+let card;
+let currentPosition = -2; // index instead of pixels
+let isAnimating = false;
+
+// Update position of the carousel
+function updatePosition() {
+  if (!carousel || !card) return;
+  const cardWidth = card.offsetWidth + 32; // 32 är gap mellan korten
+  carousel.style.transform = `translateX(${currentPosition * cardWidth}px)`;
+}
+
+// Slide-function
+function slide(direction) {
+  if (isAnimating) return;
+  isAnimating = true;
+  currentPosition -= direction;
+  carousel.style.transition = "transform 0.5s ease-in-out";
+  updatePosition();
+}
+
+// Handle infinite loop
+function setupCarouselListeners() {
+  carousel.addEventListener('transitionend', () => {
+    const totalCards = 5;
+    if (currentPosition < -totalCards - 1) {
+      currentPosition += totalCards;
+      resetTransition();
+    } else if (currentPosition > -1) {
+      currentPosition -= totalCards;
+      resetTransition();
+    }
+    isAnimating = false;
+  });
+}
+
+// Helper function to restore transition
+function resetTransition() {
+  carousel.style.transition = "none";
+  updatePosition();
+  void carousel.offsetHeight; // Force reflow
+  carousel.style.transition = "transform 0.5s ease-in-out";
+}
+
+// Resize-handling
+function setupResizeHandler() {
+  let resizeTimeout;
+  window.addEventListener('resize', () => {
+    clearTimeout(resizeTimeout);
+    resizeTimeout = setTimeout(() => {
+      updatePosition();
+    }, 250);
+  });
+}
+
+// Navigate to singelcar
+function navigateToCarDetails(carId) {
+  window.location.href = `singlecar.html?id=${carId}`;
+}
+
+// Initialize when page loads
+document.addEventListener('DOMContentLoaded', () => {
+  carousel = document.querySelector(".carousel");
+  
+  generateCarouselCards();
+  
+  card = document.querySelector(".card");
+  
+  // Event listener and initial position
+  setupCarouselListeners();
+  setupResizeHandler();
+  updatePosition();
+
+  // Hover effect 
+  const cards = document.querySelectorAll('.card');
+  cards.forEach(card => {
+    card.style.cursor = 'pointer';
+    
+    card.addEventListener('mouseenter', () => {
+      card.style.transform = 'translateY(-5px)';
+      card.style.transition = 'transform 0.3s ease';
+    });
+    
+    card.addEventListener('mouseleave', () => {
+      card.style.transform = 'translateY(0)';
+    });
+  });
 });
-
-    // Function to get query parameter from URL
-    function getQueryParam(name) {
-      const urlParams = new URLSearchParams(window.location.search);
-      return urlParams.get(name);
-    }
-
-    // Fetch the car ID from the URL query string
-    const carId = getQueryParam('id');
-
-    // Find the car with the corresponding ID from the carInformation array
-    const car = carInformation.find(c => c.id == carId);
-
-    // Display car details
-    if (car) {
-      const carDetailsContainer = document.getElementById("carDetailsContainer");
-      carDetailsContainer.innerHTML = `
-        <div class="card">
-          <img class="card-img-top" src="${car.img}" alt="${car.brand} ${car.model}">
-          <div class="card-body">
-            <h5 class="card-title">${car.brand} ${car.model}</h5>
-            <p class="card-text">Year: ${car.year}</p>
-            <p class="card-text">Price: ${car.price} SEK</p>
-            <p class="card-text">Description of the car can go here...</p>
-          </div>
-        </div>
-      `;
-    } else {
-      document.getElementById("carDetailsTitle").textContent = "Car Not Found";
-      document.getElementById("carDetailsContainer").textContent = "The car you're looking for does not exist.";
-    }
