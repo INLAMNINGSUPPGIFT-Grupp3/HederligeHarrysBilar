@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 
 // Navigation --------------------------------------------------------------------------------------------------
 function toggleMenu () {
@@ -288,5 +287,3 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 });
-=======
->>>>>>> 07583ecce9f13328a82ab0612cfd417acf7b8fae
