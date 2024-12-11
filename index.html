@@ -4,7 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
     <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="Index.css" />
   	<link rel="stylesheet" href="mediaqueries.css" />
 
     <title>HederligeHarrysBilar</title>
@@ -14,15 +16,13 @@
     <div class="navigation">
       <!-- Desktop-nav -->
       <nav id="desktop-nav">
-        <a href="/index.html">
+        <a href="index.html">
           <img src="/assets/HederligeHarrysBilarTr2.png" alt="Hederlige Harrys Logo" class="logo">
         </a>
 		  	<div>
 		  		<ul class="nav-links">
-		  			<li><a href="#fordon">Fordon</a></li>
-		  			<li><a href="#upptäck">upptäck</a></li>
-		  			<li><a href="#lånekalkylator">Lånekalkylator</a></li>
-		  			<li><a href="#kontakta">Kontakt</a></li>
+		  			<li><a href="our-cars.html">Våra Bilar</a></li>
+		  			<li><a href="#kontakta">Kontakta Oss</a></li>
 		  		</ul>
 		  	</div>
 		  </nav>
@@ -37,9 +37,7 @@
 		  			<span></span>
 		  		</div>
 		  		<ul class="menu-links glass-effect">
-		  			<li><a href="#fordon">Fordon</a></li>
-		  			<li><a href="#upptäck">upptäck</a></li>
-		  			<li><a href="#lånekalkylator">Lånekalkylator</a></li>
+		  			<li><a href="our-cars.html">Fordon</a></li>
 		  			<li><a href="#kontakta">Kontakta</a></li>
 		  		</ul>
 		  	</div>
@@ -49,7 +47,7 @@
     <!-- Hero-section -->
     <header id="hero">
       <div class="image-container">
-        <img src="/assets/car10.jpg" alt="Hederlige Harrys hero image" class="hero-image">
+        <img src="/assets/car11.jpg" alt="Hederlige Harrys hero image" class="hero-image">
       </div>
       <div class="hero-content">
           <h1 class="hero-title">Mer än bara<br>en bilhandlare</h1>
@@ -78,71 +76,88 @@
         <div class="carousel-view">
           <div class="carousel">
             
-            <div class="card" data-index="3">
-              <img src="/assets/car4.jpg" alt="Bil 4">
+            <!-- <div class="card" data-index="3">
+              <img src="/assets/Porsche-911.jpg" alt="Bil 4" onclick="navigateToCarDetails(4)">
               <div class="card-date">30/12</div>
-              <h3>Porsche 911</h3>
-              <p>Evolution av perfektion</p>
+              <h3>Porsche</h3>
+              <h4>911 GT3</h4>
+              <p>År: 2022</p>
+              <p>Pris: 200000</p>
             </div>
             
             <div class="card" data-index="4">
-              <img src="/assets/car5.jpg" alt="Bil 5">
+              <img src="/assets/Mercedes-Benz.jpg" alt="Bil 5" onclick="navigateToCarDetails(5)">
               <div class="card-date">05/01</div>
-              <h3>Aston Martin DB5</h3>
-              <p>Brittisk elegans</p>
+              <h3>Mercedes-Benz</h3>
+              <h4>AMG GT R</h4>
+              <p>År: 2021</p>
+              <p>Pris: 162900</p>
             </div>
 
             <div class="card" data-index="0">
-              <a href="singlecar.html" class="singlecar">
-                <img src="/assets/car1.jpg" alt="Bil 1">
-                <div class="card-date">15/12</div>
-                <h3>Lamborghini Miura</h3>
-                <p>En legendarisk sportbil från 60-talet</p>
-              </a>
+              <img src="/assets/McLaren-Artura.jpg" alt="Bil 1" onclick="navigateToCarDetails(1)">
+              <div class="card-date">15/12</div>
+              <h3>McLaren</h3>
+              <h4>Artura</h4>
+              <p>År: 2021</p>
+              <p>Pris: 225000</p>
             </div>
             
             <div class="card" data-index="1">
-              <img src="/assets/car2.jpg" alt="Bil 2">
+              <img src="/assets/Riley.jpg" alt="Bil 2" onclick="navigateToCarDetails(2)">
               <div class="card-date">20/12</div>
-              <h3>Classic Mercedes</h3>
-              <p>Tysk ingenjörskonst när den är som bäst</p>
+              <h3>Riley</h3>
+              <h4>Nine Roadster</h4>
+              <p>År: 1939</p>
+              <p>Pris: 50000</p>
             </div>
             
             <div class="card" data-index="2">
-              <img src="/assets/car3.jpg" alt="Bil 3">
+              <img src="/assets/Lamborghini.jpg" alt="Bil 3" onclick="navigateToCarDetails(3)">
               <div class="card-date">25/12</div>
-              <h3>Ferrari 250 GTO</h3>
-              <p>En tidlös klassiker</p>
+              <h3>Lamborghini</h3>
+              <h4>Huracán</h4>
+              <p>År: 2020</p>
+              <p>Pris: 300000</p>
             </div>
             
             <div class="card" data-index="3">
-              <img src="/assets/car4.jpg" alt="Bil 4">
+              <img src="/assets/Porsche-911.jpg" alt="Bil 4" onclick="navigateToCarDetails(4)">
               <div class="card-date">30/12</div>
-              <h3>Porsche 911</h3>
-              <p>Evolution av perfektion</p>
+              <h3>Porsche</h3>
+              <h4>911 GT3</h4>
+              <p>År: 2022</p>
+              <p>Pris: 200000</p>
             </div>
             
             <div class="card" data-index="4">
-              <img src="/assets/car5.jpg" alt="Bil 5">
+              <img src="/assets/Mercedes-Benz.jpg" alt="Bil 5" onclick="navigateToCarDetails(4)">
               <div class="card-date">05/01</div>
-              <h3>Aston Martin DB5</h3>
-              <p>Brittisk elegans</p>
+              <h3>Mercedes-Benz</h3>
+              <h4>AMG GT R</h4>
+              <p>År: 2021</p>
+              <p>Pris: 162900</p>
             </div>
 
             <div class="card" data-index="0">
-              <img src="/assets/car1.jpg" alt="Bil 1">
+              <img src="/assets/McLaren.jpg" alt="Bil 1" onclick="navigateToCarDetails(1)">
               <div class="card-date">15/12</div>
-              <h3>Lamborghini Miura</h3>
-              <p>En legendarisk sportbil från 60-talet</p>
+              <h3>McLaren</h3>
+              <h4>Artura</h4>
+              <p>År: 2022</p>
+              <p>Pris: 225000</p>
             </div>
             
             <div class="card" data-index="1">
-              <img src="/assets/car2.jpg" alt="Bil 2">
+              <img src="/assets/Riley.jpg" alt="Bil 2" onclick="navigateToCarDetails(2)">
               <div class="card-date">20/12</div>
-              <h3>Classic Mercedes</h3>
-              <p>Tysk ingenjörskonst när den är som bäst</p>
-            </div>
-
+              <h3>Riley</h3>
+              <h4>Nine Roadster</h4>
+              <p>År: 1939</p>
+              <p>Pris: 50000</p>
+            </div> -->
+            
+            <!-- Dynamically generated by JavaScript -->
           </div>
         </div>
         <button class="carousel-button next" onclick="slide(1)">→</button>
@@ -151,13 +166,41 @@
 
     <!-- Contact -->
     <section id="kontakta">
-      <p>Kontakt</p>
-      <h1 class="title">Kontakta mig</h1>
-      <div class="contact-info-upper-container">
-        <div class="contact-info-container">
-          <
+      <h1 class="title">Kontakta oss</h1>
+        <div class="contact-info-upper-container">
+          <div class="contact-info-container">
+            <table class="contact-info">
+              <tr>
+                  <th>Öppettider</th>
+                  <td>10:00 - 17:00 (Mån-Fre)</td>
+              </tr>
+              <tr>
+                  <th>Telefon</th>
+                  <td>+46 123 456 789</td>
+              </tr>
+              <tr>
+                  <th>Adress</th>
+                  <td>Bilsäljargatan 12, 123 45 Stockholm</td>
+              </tr>
+              <tr>
+                  <th>E-post</th>
+                  <td>hederligeharry@billeverantör.se</td>
+              </tr>
+            </table>
+            <form class="contact-form" action="#" id="contactForm" novalidate>
+              <label for="name">Namn:</label>
+              <input type="text" id="name" name="name" required>
+
+              <label for="email">E-post:</label>
+              <input type="email" id="email" name="email" required>
+
+              <label for="message">Meddelande:</label>
+              <textarea id="message" name="message" rows="5" required></textarea>
+
+              <button id="submitButton" type="submit">Skicka</button>
+            </form>
+          </div>
         </div>
-      </div>
     </section>
 
     <!-- Footer -->
@@ -184,7 +227,11 @@
       </div>
     </footer>
 
+    <!-- JavaScript -->
     <script src="script.js"></script>
+
+    <!-- Bootstrap -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
   </body>
 </html>
