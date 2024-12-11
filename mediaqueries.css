@@ -1,0 +1,52 @@
+@media screen and (max-width: 1400px) {
+    .hero-content,
+    .ratings {
+      max-width: 1000px;
+    }
+  }
+  
+  @media screen and (max-width: 1200px) {
+    #desktop-nav {
+      display: none;
+    }
+    
+    #mobile-nav {
+      display: flex;
+    }
+  }
+
+  @media screen and (max-width: 600px) {
+    .loan-form {
+        padding: 20px; 
+    }
+
+    .input-box label {
+        font-size: 18px; 
+    }
+
+    .input-box input {
+      max-width: 180px;
+    }
+
+    .calculate-btn,
+    .clear-btn {
+        max-width: 100%;
+        font-size: 16px;
+    }
+
+    .loan-form p {
+      font-size: 16px;
+    }
+
+    .loan-form span {
+      font-size: 14px;
+    }
+
+    #loan-length-error {
+      font-size: 12px;
+    }
+
+    .error-message {
+      padding-left: 150px;
+    }
+}
