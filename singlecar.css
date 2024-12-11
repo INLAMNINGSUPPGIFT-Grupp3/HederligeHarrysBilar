@@ -42,7 +42,6 @@ nav {
 /* Mobile Nav ---------------------------------------------------------------------- */
 #mobile-nav {
 	display: none;
-  /* border-bottom: 1px solid rgba(245, 245, 245, 0.2); */
 }
 
 .hamburger-menu {
@@ -173,7 +172,7 @@ nav {
   color: #8BC342 !important;
 }
 
-/* Calculator Section */
+/* Calculator Section ----------------------------------------------------------------------*/
 .loan-calculator {
   margin-top: 3rem;
 }
@@ -241,7 +240,8 @@ nav {
 
 /* Footer Section ---------------------------------------------------------------------- */
 #footer {
-  background-color: #D7DDDE;
+  /* background-color: #D7DDDE; */
+  background-color: #8ec149;
   padding: 1.5rem 0;
   font-size: 0.8rem;
 }
@@ -270,8 +270,9 @@ nav {
 }
 
 #footer p {
-    margin-top: 0;
-    margin-bottom: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+  color: #333;
 }
 
 .footer-links a {

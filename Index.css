@@ -2,7 +2,6 @@
 /* Desktop Nav ---------------------------------------------------------------------- */
 #desktop-nav{
   margin-top: 0.5rem;
-  /* border-bottom: 1px solid rgba(245, 245, 245, 0.2); */
 }
 
 nav,
@@ -13,7 +12,7 @@ nav,
 nav {
 	justify-content: space-around;
 	align-items: center;
-	/* height: 9vh; */
+	
 }
 
 .nav-links {
@@ -40,7 +39,6 @@ nav {
 /* Mobile Nav ---------------------------------------------------------------------- */
 #mobile-nav {
 	display: none;
-  /* border-bottom: 1px solid rgba(245, 245, 245, 0.2); */
 }
 
 .hamburger-menu {
@@ -221,7 +219,7 @@ nav {
 }
 
 .stars {
-  color: #FFAF01; /* Mörkgrön färg för stjärnorna */
+  color: #FFAF01; 
   letter-spacing: 2px;
 }
 
@@ -253,7 +251,7 @@ nav {
 }
 
 .card {
-  flex: 0 0 calc((100% - 4rem) / 3); /* Tre kort fyller hela bredden */
+  flex: 0 0 calc((100% - 4rem) / 3); /* 3 cards fill width */
   background: white;
   border-radius: 8px;
   overflow: hidden;
@@ -322,13 +320,11 @@ nav {
 
 
 /* Contact Section ---------------------------------------------------------------------- */
-#kontakta {
+#contact {
 	display: flex;
   flex-direction: column;
 	align-items: center;
-	height: 70vh;
-  padding: 20px;
-  /* padding-left: 100px; */
+  padding: 2rem 2rem 4rem 2rem
 }
 
 .title {
@@ -346,10 +342,7 @@ nav {
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  gap: 20px;
   width: 100%;
-  max-width: 1200px;
-  margin-top: 10px;
 }
 
 .contact-info {
@@ -366,7 +359,6 @@ nav {
   display: flex;
   flex-wrap: wrap;
   align-items: flex-start;
-  gap: 10px;
 }
 
 .contact-form label {
@@ -386,35 +378,74 @@ nav {
 }
 
 .contact-form button {
-  align-self: flex-end;
-  margin-top: 10px;
-  padding: 10px 15px;
-  background-color: #0eb2ef;
+  background-color: #0EB0F0; 
   color: white;
   border: none;
   border-radius: 4px;
+  padding: 0.75rem 2rem;
+  font-weight: 500;
   cursor: pointer;
-  margin-left: 10px;
+  transition: all 0.3s ease;
+  width: 100%;
 }
 
 .contact-form button:hover {
-  background-color: #0d8fbe;
+  background-color: #0e9cd4;
+  padding: 0.75rem 1.5rem;
+  transform: translateY(-2px);
+}
+
+/* Validation messages */
+.form-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+  width: 100%;
+}
+
+.form-group label {
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
 }
 
 .error-message {
-  color: red;
-  font-size: 0.9em;
-  margin-top: 5px;
-  display: block; /* Gör felmeddelandet synligt */
+  color: #dc3545;
+  font-size: 0.875rem;
+  margin-top: 0.25rem;
+  min-height: 1.25rem;
 }
 
 .input-error {
-  border-color: red; /* Gör kantlinjen röd när fältet är fel */
+  border-color: #dc3545;
+}
+
+.submit-button {
+  background-color: #8BC342;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 0.75rem 2rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  width: 100%;
+}
+
+.submit-button:hover {
+  background-color: #7ab32e;
 }
 
 
 /* Footer Section ---------------------------------------------------------------------- */
 #footer {
+  /* background-color: #D7DDDE; */
   background-color: #8ec149;
   padding: 1.5rem 0;
   font-size: 0.8rem;
@@ -446,6 +477,7 @@ nav {
 #footer p {
     margin-top: 0;
     margin-bottom: 0;
+    color: #333;
 }
 
 .footer-links a {

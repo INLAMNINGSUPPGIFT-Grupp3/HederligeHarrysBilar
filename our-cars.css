@@ -222,7 +222,8 @@ nav {
 
 /* Footer Section ---------------------------------------------------------------------- */
 #footer {
-  background-color: #D7DDDE;
+  /* background-color: #D7DDDE; */
+  background-color: #8ec149;
   padding: 1.5rem 0;
   font-size: 0.8rem;
 }
@@ -253,6 +254,7 @@ nav {
 #footer p {
     margin-top: 0;
     margin-bottom: 0;
+    color: #333;
 }
 
 .footer-links a {
@@ -278,8 +280,6 @@ nav {
   font-style: italic;
   font-size: 0.85rem;
 }
-
-  
 
 
 /* Mobile devices (portrait) */

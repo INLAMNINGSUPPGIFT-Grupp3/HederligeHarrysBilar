@@ -37,7 +37,7 @@
     
   /* Cards */
   .card {
-    min-width: calc((100% - 2rem) / 2); /* 2 kort på mellenstora skärmar */
+    min-width: calc((100% - 2rem) / 2); /* 2 cards medium screens */
   }
   .carousel-container {
     padding: 0 1rem;
@@ -99,7 +99,7 @@
   
   /* Cards */
   .card {
-    min-width: 100%; /* 1 kort på liten skärm */
+    min-width: 100%; /* 1 card small screen*/
   }
   .carousel-container {
       padding: 0 0.5rem;
@@ -109,12 +109,12 @@
       height: 30px;
   }
 
+  /* Contact */
   .contact-info-container {
     flex-direction: column;
     gap: 2rem;
   }
 
-    /* Contact */
   .contact-info,
   .contact-form {
     width: 100%;
